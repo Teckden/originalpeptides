@@ -1,0 +1,19 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Login</h1>
+
+<%= form_tag(controller: 'sessions', action: 'create') do %>
+  <div>
+    <%= label_tag(:username) %>
+    <%= text_field_tag(:username) %>
+  </div>
+  <div>
+    <%= label_tag(:password) %>
+    <%= password_field_tag(:password) %>
+  </div>
+  <div>
+    <%= submit_tag "Log In", class: "btn btn-primary" %>
+  </div>
+<% end %>

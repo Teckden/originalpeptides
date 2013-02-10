@@ -1,0 +1,40 @@
+// Place all the styles related to the Orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.orders {
+  .field {
+    padding-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .field input, .field textarea {
+    width: 400px;
+    
+  }
+
+
+
+
+/*******************SHow order************************/
+  
+  #order_show {
+    .total_line {
+      text-align: right;
+    }
+    .total_line td {
+      padding-top: 10px;
+    }
+    .total_line, .total_price {
+      font-weight: bold;
+      border-top: 1px solid #595;
+    }
+  }
+
+  #order_show tr th{
+    width: 150px;
+  }
+
+
+
+}

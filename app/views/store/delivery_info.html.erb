@@ -1,0 +1,5 @@
+<h1><i>Оплата и Доставка</i></h1>
+
+<% @delivery_details.each do |delivery_detail| %>
+    <p><%= delivery_detail.delivery.html_safe %></p>
+<% end %>

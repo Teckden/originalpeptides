@@ -1,0 +1,34 @@
+<script language="JavaScript">
+  document.onmousedown=function(){return true}
+</script>
+
+<h1><i>Ваша Корзина</i></h1>
+<table>
+  <tr>
+    <td>Кол-во</td>
+    <td>Наименование</td>
+    <td>Цена</td>
+  </tr>
+  <% current_cart.cart_products.each do |item| %>
+    <tr>
+      <td class="quantity">
+        <%= form_for item do |f| %>
+          <%= f.number_field :quantity, placeholder: "#{item.quantity}", in: 1...100 %>
+          <%= f.submit "пересчитать" %>
+        <% end %>
+      </td>
+      <td style="width: 120px;"><%= link_to item.product.title, show_item_path(item.product.id, item.product.custom_url) %></td>
+      <td><%= number_to_currency(item.total_price, unit: "грн.", format: "%n %u") %></td>
+      <td><%= link_to 'X', item, confirm: "Are you sure?", method: :delete %></td>
+    </tr>
+  <% end %>
+  <tr class="total_line">
+    <td colspan="2">Total:</td>
+    <td class="total_price"><%= number_to_currency(current_cart.total_price, unit: "грн.", format: "%n %u") %></td>
+  </tr>
+</table>
+<div style="margin-left: 280px; font-size: 90%; color: grey;">Х - удалить товар из корзины</div>
+<div id="buttons_in_cart">
+  <%= button_to 'Очитить Корзину', current_cart, confirm: 'Вы уверены?', method: :delete, class: "btn btn-primary" %>
+  <%= button_to 'Оформить Заказ', new_order_path, method: :get, class: "btn btn-primary" %>
+</div>

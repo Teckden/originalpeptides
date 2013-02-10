@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<div class="details">
+  <%= image_tag(@product.assets.last.image.url(:thumb)) %>
+  <div>
+    <b>Название товара:</b>
+    <%= @product.title %>
+  </div>
+  <div>
+    Поизводитель: <%= @product.producer %>
+  </div>
+  <p>
+    Наличие: <%= @product.available ? "Есть в наличии" : "Нет в наличии" %>
+  </p>
+</div><!-- Close .details -->
+<br/>
+<div>
+  <b>Описание:</b><br/>
+  <div class="product_description"><%= @product.description.html_safe %></div>
+</div>
+<br/>
+<div>
+  <b>Цена:</b>
+  <%= number_to_currency(@product.price, unit: "грн.", format: "%n %u") %>
+</div>
+
+
+<ul>
+  <h3>Загруженые фотографии товара:</h3>
+  <% for asset in @product.assets %>
+    <li><%= image_tag(asset.image.url(:thumb)) %></li>
+  <% end %>
+</ul>
+<div class="edit_bar">
+  <%= link_to 'Редактировать', edit_product_path(@product) %> |
+  <%= link_to 'Удалить', @product, confirm: 'Вы уверены?', method: :delete %>
+</div>

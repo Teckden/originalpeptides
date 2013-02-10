@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Original Peptides - Только Качественная Продукция</title>
+  <meta name="keywords" content="IGF-1, DSIP, Гонадорелин, Melanotan, Melanotan II, Sermorelin, CJC-1295, PT 141, HGH, HGH 176-191, ipamorelin, MGF, PEG-MGF, механический фактор роста, GHRP-2, Thymosin Beta 4 Tb-500, GHRP-6, IGF LR3, игтропин, kigtropin, хайгетропин, gonadotropin, MOD GRF, GRF">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= favicon_link_tag %>
+
+  <!-- Cкрипт запрещает использовать правую кнопку на странице, и выделять текст -->
+  <script language="JavaScript">
+    document.onselectstart=function(){return false}
+    document.oncontextmenu=function(){return false}
+    document.onmousedown=function(){return false}
+  </script>
+  <%= csrf_meta_tags %>
+</head>
+<body  class='<%= controller.controller_name %>'>
+
+    <%= render 'layouts/header' %>
+
+    <div id="site_content">
+      <div id="slider_image">
+        <ul class="round">
+          <li><%= image_tag 'slide-4.jpg' %></li>
+          <li><%= image_tag 'slide-2.jpg' %></li>
+          <li><%= image_tag 'slide-3.jpg' %></li>
+        </ul>
+
+      </div><!-- End of slider_image -->
+
+      <div id="content">
+        <div class="content_item">
+          <p><%= yield %></p>
+        </div><!--close content_item--> 
+        <br style="clear:both;" />
+      </div><!--close content-->
+      <div class="vk_widget">
+        <script type="text/javascript" src="//vk.com/js/api/openapi.js?64"></script>
+          <!-- VK Widget --> 
+          <div id="vk_groups"></div>
+          <script type="text/javascript">
+          VK.Widgets.Group("vk_groups", {mode: 1, wide: 1, width: "300", height: "150"}, 45915490);
+        </script>
+      </div>
+    </div><!--close site_content--> 
+
+  <%= render 'layouts/footer' %>
+
+  <%= javascript_include_tag "jquery_all.js" %>
+  <%= javascript_include_tag "jquery.js" %>
+  <%= javascript_include_tag "jquery.roundabout.js" %>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.round').roundabout({
+                autoplay: true,
+                autoplayDuration: 5000,
+                autoplayPauseOnHover: true
+            });
+        });
+    </script>
+
+</body>
+</html>
