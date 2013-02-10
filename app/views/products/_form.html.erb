@@ -1,0 +1,62 @@
+<div class="product_form">
+<%= form_for @product, html: { multipart: true } do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2>Указаные ниже поля заполнены не корректно, пожалуйста заполните их правильно:</h2>
+
+      <ol>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ol>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, "Наименование" %>
+    <%= f.text_field :title, size: 500 %>
+  </div>
+  <div class="field">
+    <%= f.label :description, "Описание" %>
+    <%= f.cktext_area :description, id: 'description' %>
+  </div>
+  <div class="field">
+    <%= f.label :price, "Цена" %>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :producer, "Производитель:" %>
+    <%= f.text_field :producer %>
+  </div>
+  <div class="field" style="margin-left: -245px;">
+    <%= f.label :available, "Наличие:", class: "avail" %>
+    <%= f.check_box :available %>
+  </div>
+  <div class="field">
+    <%= f.label :custom_url, "SEO url" %>
+    <%= f.text_field :custom_url %>
+  </div>
+
+  <%= f.fields_for :assets do |asset_fields| %>
+    <% if asset_fields.object.new_record? %>
+      <div class="field">
+        <%= asset_fields.label :image, "Выбирите файл:" %>
+        <%= asset_fields.file_field :image %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <h2>Уже загруженые фотографии товара:</h2>
+  <%= f.fields_for :assets do |asset_fields| %>
+    <% unless asset_fields.object.new_record? %>
+      <%= link_to image_tag(asset_fields.object.image.url(:thumb)), 
+                            asset_fields.object.image.url(:original) %>
+      <%= asset_fields.check_box :_destroy %>
+    <% end %>
+  <% end %>
+
+  <div class="action">
+    <%= f.submit "Сохранить товар", class: "btn btn-primary" %>
+  </div>
+<% end %>
+</div><!-- end of .product_form -->

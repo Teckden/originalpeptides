@@ -1,0 +1,71 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin_layout {
+  
+  body {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    background: transparent;
+    color: #FFF;
+  }
+
+  a {
+    color: #4169E0;
+  }
+
+  p
+  { padding: 0 0 20px 0;
+    line-height: 1.7em;}
+    
+  h1, h2, h3, h4, h5, h6 {
+    font: bold 175% arial, sans-serif;
+    color: #4169E0;
+    margin: 0 0 5px 0;
+    padding: 15px 0 0 0;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2
+  { font: bold 165% arial, sans-serif;}
+
+  h3
+  { font: bold 125% arial, sans-serif;
+    padding: 0 0 5px 0;
+    color: #4169E0;}
+
+  h4, h5, h6 {
+    margin: 0;
+    padding: 0 0 5px 0;
+    font: bold 110% arial, sans-serif;
+    color: #4169E0;
+    line-height: 1.5em;
+  }
+
+  ul, ul li {
+    list-style: none;
+    display: inline;
+  }
+
+  #menubar {
+    width: 920px;
+    height: 30px;
+    padding-top: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background: transparent url(transparent.png) repeat;
+    a {
+      color: #FFF;
+      font-size: 150%;
+    }
+  }
+}
+
+
+
+

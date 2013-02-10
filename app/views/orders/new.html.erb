@@ -1,0 +1,44 @@
+<script language="JavaScript">
+    document.onmousedown=function(){return true}
+</script>
+
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+      <h2><%= pluralize(@order.errors.count, "error") %> не позволили оформить заказ:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "* ФИО:" %>
+    <%= f.text_field :name, cols: 55 %>
+  </div>
+  <div class="field">
+    <%= f.label :email, "* Email:" %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone, "* Контактный телефон:" %>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :address,"* Город/Регион/Область(населенный пункт):" %>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :details, "Укажите номер склада Новой почты в Вашем городе:" %>
+    <%= f.text_field :details %>
+  </div>
+  <div class="field">
+    <%= f.label :comment, "Комментарий:" %>
+    <%= f.text_area :comment, rows: 4 %><br/>
+    * - Поля обезательные для заполнения
+  </div>
+  <div class="field">
+    <%= f.submit 'Готово', class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
