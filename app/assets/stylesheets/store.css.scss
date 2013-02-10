@@ -1,0 +1,127 @@
+// Place all the styles related to the store controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.store {
+  color: #FFF;
+
+  a {
+    color: #4169E0;
+  }
+
+  h2 {
+   text-align: center; 
+  }
+
+  p {
+    margin-right: 3%;
+  }
+
+/*****************Show_product_page*****************/
+  .show_product {
+    overflow: auto;
+    margin: 1em;
+
+    span {
+      color: #fff;
+    }
+
+    img {
+      margin: 5px;
+      position: absolute;
+      border: 3px solid white;
+      border-radius: 2px;
+    }
+
+    ul {
+      margin-top: 75px;
+      margin-left: 0;
+      li {
+        margin-left: -5px;
+        list-style: none;
+        display: inline;
+      }
+      img {
+        width: 90px;
+        height: 68px;
+        position: static;
+      }
+    }
+
+    h3 {
+      font-size: 120%;
+      font-family: sans-serif;
+      margin: 0 0 5px 200px;
+    }
+
+    .to_the_left {
+      margin-left: 200px;
+      float: left;
+    }
+    
+    .to_the_right {
+      margin-right: 5%;
+      text-align: right;
+    }
+
+    .description {
+      margin: 1% 3% 2% 1%;
+    }
+
+    .btn {
+      margin-top: 5px;
+    }
+    .price {
+      color: #4169E0;
+      font-weight: bold;
+    }
+    ul {
+      list-style: none;
+      padding:0;
+      margin:0;
+
+      li {
+        display: block;
+        padding-left: 3em;
+        text-indent: -.7em;
+      }
+
+      li:before {
+        content: "• ";
+        color: white; /* or whatever color you prefer */
+      }
+    }
+  }
+  /*==============================close .show_product==============================*/
+
+  .catalog_entry {
+    img {
+      margin: 5px;
+      position: absolute;
+      border: 3px solid white;
+      border-radius: 2px;
+    }
+    h3 {
+      margin-left: 200px;
+      font-size: 150%;
+    }
+    .description {
+      margin: 0 20px 0 200px;
+      color: #FFF;
+    }
+
+    span {
+      color: #fff;
+    }
+
+    .price_line {
+      text-align: right;
+      margin: -20px 3% 20px 0;
+      form, div {
+        display: inline;
+      }
+    }
+    .price {
+      font-weight: bold;
+    }
+  }
+}

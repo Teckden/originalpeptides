@@ -1,0 +1,103 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#content {
+  width: 920px;
+  margin: 0;
+  padding: 0;
+}
+
+.products {
+  color: #FFF;
+
+  a {
+    color: #4169E0;
+  }
+
+  h2 {
+   text-align: center; 
+  }
+  .catalog_entry {
+    img {
+      margin: 5px;
+      position: absolute;
+    }
+    h3 {
+      margin-left: 200px;
+      font-size: 150%;
+    }
+    .price {
+      font-weight: bold;
+      margin-top: -40px;
+      margin-left: 790px;
+    }
+    p {
+      margin-left: 200px;
+      margin-right: 20px;
+    }
+  }
+  .edit_bar {
+    text-align: right;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    form, div {
+      display: inline;
+    }
+  }
+
+
+  /*********************SHow product in admin_area******************/
+  .details img {
+    float: left;
+    margin-right: 10px;
+  }
+
+  .product_description span {
+    color: #fff;
+  }
+
+
+/***********************Form for new/edit page********************/
+  .product_form {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    label {
+      text-align: left;
+      margin-left: 245px;
+    }
+
+    #cke_description {
+      margin-left: 2%;
+      margin-right: 2%;
+      width: 96%;
+    }
+    div#cke_1_contents.cke_contents.cke_reset {
+      min-height: 400px !important;
+
+    }
+    iframe.cke_wysiwyg_frame.cke_reset {
+      min-height: 400px !important;
+    }
+
+    .field input {
+      width: 400px;
+    }
+
+    .field input[type="checkbox"], .field .avail {
+      width: 20px;
+      display: inline;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .action {
+      margin-top: 20px;
+      .btn {
+        width: 400px; 
+      }
+    }
+  }
+
+}

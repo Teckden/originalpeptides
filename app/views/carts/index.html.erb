@@ -1,0 +1,8 @@
+<h1>Carts#index</h1>
+
+<% @carts.each do |cart| %>
+  <p>
+    <%= link_to cart.id, cart %>
+    (Created: <%= cart.created_at %>)
+  </p>
+<% end %>
