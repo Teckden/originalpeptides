@@ -18,3 +18,5 @@
 /.idea/
 /config/database.yml
 /public/system/
+/Gemfile.lock
+/tmp/
