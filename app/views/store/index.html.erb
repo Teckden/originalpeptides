@@ -1,0 +1,21 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h2><i>Peptides:</i></h2>
+
+<% @products.each do |item| %>
+  <div class="catalog_entry">
+    <%= link_to image_tag(item.assets.last.image.url(:thumb)), show_item_path(item, item.custom_url) %>
+    <h3><%= link_to item.title, show_item_path(item, item.custom_url) %></h3>
+    <div class="description">
+      <%= truncate(item.description, length: 330).html_safe %>
+      <%= link_to 'подробнее', show_item_path(item, item.custom_url) %>
+    </div>
+    <div class="price_line">
+      <span class="price"><%= number_to_currency(item.price, unit: "грн.", format: "%n %u") %></span>
+      <%= button_to 'Добавить в Корзину', cart_products_path(product_id: item), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+

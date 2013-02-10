@@ -1,0 +1,9 @@
+
+<h1>Список заказов</h1>
+
+<% @orders.each do |order| %>
+  <div><%= order.id %></div>
+  <div><%= link_to order.name, order %></div>
+  <div style="float: left; margin: -20px 0 0 740px;"><%= link_to 'Удалить', order, confirm: "Вы уверены?", method: :delete %></div>
+  <hr style="width: 800px" />
+<% end %>

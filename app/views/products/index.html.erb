@@ -1,0 +1,35 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h2>Peptides:</h2>
+<div class="edit_bar">
+  <%= link_to 'Добавить товар', new_product_path %>
+</div>
+<% @products.each do |item| %>
+  <div class="catalog_entry">
+
+    <%= link_to image_tag(item.assets.last.image.url(:thumb)), item %>
+    <h3><%= link_to item.title, item %></h3>
+    <p>
+      <div class="product_description">
+        <%= truncate(item.description, length: 230).html_safe %>
+        <%= link_to 'подробнее', item %>
+      </div>
+    </p>
+    
+    <div class="price">
+      <span><%= number_to_currency(item.price, unit: "грн.", format: "%n %u") %></span>
+    </div>
+
+    <div class="edit_bar">
+      <%= link_to 'Редактировать', edit_product_path(item) %> |
+      <%= link_to 'Удалить', item, method: :delete, data: { confirm: 'Вы уверены?' } %>
+    </div>
+
+  </div>
+<% end %>
+
+<div class="edit_bar">
+  <%= link_to 'Добавить товар', new_product_path %>
+</div>

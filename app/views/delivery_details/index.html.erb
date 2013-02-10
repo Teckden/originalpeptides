@@ -1,0 +1,21 @@
+<h1>Оплата и Доставка</h1>
+
+<p><%= link_to 'Добавить новое описание', new_delivery_detail_path %></p>
+
+<table>
+<% @delivery_details.each do |delivery_detail| %>
+  <tr>
+    <td><%= delivery_detail.delivery.html_safe %></td>
+  </tr>
+  <tr>
+    <td>
+    <%= link_to 'Редактировать', edit_delivery_detail_path(delivery_detail) %> | 
+    <%= link_to 'Удалить', delivery_detail, method: :delete, data: { confirm: 'Вы уверены?' } %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Добавить новое описание', new_delivery_detail_path %>
