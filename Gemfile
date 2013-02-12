@@ -9,14 +9,13 @@ gem 'russian', '0.6.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2', '0.3.11'
-gem 'ckeditor', '4.0.2'
 
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'execjs'
   gem 'therubyracer', '0.10.2'
   gem 'libv8', '3.3.10.4'
