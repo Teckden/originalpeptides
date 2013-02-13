@@ -23,8 +23,7 @@ CartTemplate::Application.configure do
   config.assets.digest = true
 
   # Settings for sending email
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :sendmail
+
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
