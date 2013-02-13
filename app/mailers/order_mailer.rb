@@ -1,5 +1,5 @@
 class OrderMailer < ActionMailer::Base
-  default from: "notification@originalpeptides.com"
+  default from: "noreply@originalpeptides.com.ua"
 
   def new_order(order)
     @order = order
