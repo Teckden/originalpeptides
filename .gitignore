@@ -22,3 +22,4 @@
 /tmp/
 /public/assets/
 /config/environment.rb
+/config/environments/development.rb
