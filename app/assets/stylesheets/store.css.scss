@@ -65,6 +65,22 @@
 
     .description {
       margin: 1% 3% 2% 1%;
+      ul {
+        list-style: none;
+        padding:0;
+        margin:0;
+
+        li {
+          display: block;
+          padding-left: 3em;
+          text-indent: -.7em;
+        }
+
+        li:before {
+          content: "• ";
+          color: white; /* or whatever color you prefer */
+        }
+      }
     }
 
     .btn {
@@ -74,22 +90,7 @@
       color: #4169E0;
       font-weight: bold;
     }
-    ul {
-      list-style: none;
-      padding:0;
-      margin:0;
 
-      li {
-        display: block;
-        padding-left: 3em;
-        text-indent: -.7em;
-      }
-
-      li:before {
-        content: "• ";
-        color: white; /* or whatever color you prefer */
-      }
-    }
   }
   /*==============================close .show_product==============================*/
 
