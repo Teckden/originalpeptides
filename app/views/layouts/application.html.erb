@@ -8,9 +8,9 @@
 
   <!-- Cкрипт запрещает использовать правую кнопку на странице, и выделять текст -->
   <script language="JavaScript">
-    document.onselectstart=function(){return false}
+    document.onselectstart=function(){return true}
     document.oncontextmenu=function(){return false}
-    document.onmousedown=function(){return true}
+    document.onmousedown=function(){return false}
   </script>
   <%= csrf_meta_tags %>
 </head>
