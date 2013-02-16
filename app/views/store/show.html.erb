@@ -15,14 +15,17 @@
     <br/>
     <%= button_to 'Добавить в Корзину', cart_products_path(product_id: @product), class: "btn btn-primary" %>
   </div>
-  <ul>
-    <% (@assets.count-1).times do |asset_id| %>
-      <li><%= link_to image_tag(@assets[asset_id].image), @assets[asset_id].image.url(:large), rel: "lightbox[photo]" %></li>
-    <% end %>
-  </ul>
+  <div class="img_list">
+    <ul>
+      <% (@assets.count-1).times do |asset_id| %>
+        <li><%= link_to image_tag(@assets[asset_id].image), @assets[asset_id].image.url(:large), rel: "lightbox[photo]" %></li>
+      <% end %>
+    </ul>
+  </div>
   <div class="description">
     <p><%= @product.description.html_safe %></p>
   </div>
 </div>
 
+<%= javascript_include_tag "jquery.js" %>
 <%= javascript_include_tag "lightbox.js" %>

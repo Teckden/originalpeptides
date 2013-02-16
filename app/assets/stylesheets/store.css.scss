@@ -32,18 +32,25 @@
       border-radius: 2px;
     }
 
-    ul {
-      margin-top: 75px;
-      margin-left: 0;
-      li {
-        margin-left: -5px;
-        list-style: none;
-        display: inline;
-      }
-      img {
-        width: 90px;
-        height: 68px;
-        position: static;
+    .img_list {
+      ul {
+        margin-top: 75px;
+        margin-left: 0;
+        li {
+          margin-left: -5px;
+          list-style: none;
+          display: inline;
+          padding: 0;
+          text-indent: 0;
+        }
+        li:before {
+          content: none;
+        }
+        img {
+          width: 90px;
+          height: 68px;
+          position: static;
+        }
       }
     }
 
@@ -78,7 +85,7 @@
 
         li:before {
           content: "• ";
-          color: white; /* or whatever color you prefer */
+          color: white;
         }
       }
     }
