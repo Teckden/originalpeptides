@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="show_product">
-  <%= image_tag(@product.assets.last.image.url(:thumb)) %>
+  <%= link_to image_tag(@product.assets.last.image.url(:thumb)), @product.assets.last.image.url(:large), rel: "lightbox[photo]" %>
   <h3><%= @product.title %></h3>
   <div class="to_the_left">
     <div>Производитель: <%= @product.producer %> </div>
