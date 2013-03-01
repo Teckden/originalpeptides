@@ -20,6 +20,7 @@
 /public/system/
 /Gemfile.lock
 /tmp/
+/public/system/
 /public/assets/
 /config/environment.rb
 /config/environments/development.rb
