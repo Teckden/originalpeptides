@@ -6,7 +6,7 @@
 
 <% @products.each do |item| %>
   <div class="catalog_entry">
-    <%= link_to image_tag(item.assets.last.image.url(:thumb)), show_item_path(item, item.custom_url) %>
+    <%= link_to (image_tag item.assets.last.image.url(:thumb), title: "Купить #{item.title}", alt: "как принимать #{item.title}, купить #{item.title} украина" ), show_item_path(item, item.custom_url) %>
     <h3><%= link_to item.title, show_item_path(item, item.custom_url) %></h3>
     <div class="description">
       <%= truncate(item.description, length: 330).html_safe %>
