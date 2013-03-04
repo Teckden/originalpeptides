@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="show_product">
-  <%= link_to image_tag(@product.assets.last.image.url(:thumb)), @product.assets.last.image.url(:large), rel: "lightbox[photo]" %>
+  <%= link_to (image_tag @product.assets.last.image.url(:thumb), title: "Купить #{@product.title}", alt: "как принимать #{@product.title}, купить #{@product.title} украина"), @product.assets.last.image.url(:large), rel: "lightbox[photo]" %>
   <h3><%= @product.title %></h3>
   <div class="to_the_left">
     <div>Производитель: <%= @product.producer %> </div>
@@ -20,7 +20,7 @@
   <div class="img_list">
     <ul>
       <% (@assets.count-1).times do |asset_id| %>
-        <li><%= link_to image_tag(@assets[asset_id].image), @assets[asset_id].image.url(:large), rel: "lightbox[photo]" %></li>
+        <li><%= link_to (image_tag @assets[asset_id].image, title: "Купить #{@product.title}", alt: "как принимать #{@product.title}, купить #{@product.title} украина"), @assets[asset_id].image.url(:large), rel: "lightbox[photo]" %></li>
       <% end %>
     </ul>
   </div>
