@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Original Peptides - Только Качественная Продукция</title>
+  <title><%= full_title(@title) %></title>
   <meta name="keywords" content="IGF-1, DSIP, Гонадорелин, Gonadorelin, Melanotan, Melanotan-2, Sermorelin, CJC-1295, PT-141, HGH, HGH 176-191, ipamorelin, MGF, PEG-MGF, механический фактор роста, GHRP-2, Thymosin Beta4, Tb-500, GHRP-6, IGF-1LR3, igflr3, игтропин, kigtropin, хайгетропин, gonadotropin, MOD GRF, igf, ифр, худеем, похудеть, накачяться, мышечьная масса, загар, загореть, сила, выносливость, восстановление, гормон роста, пептиды, пептид, peptides, peptid, инсулиноподобный фактор роста, gormon, похудеть, быстро накачаться, бысторо похудеть, спорт, диета, востоновление">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= favicon_link_tag %>
 
   <!-- Cкрипт запрещает использовать правую кнопку на странице, и выделять текст -->
   <script language="JavaScript">
-    document.onselectstart=function(){return flase}
+    document.onselectstart=function(){return false}
     document.oncontextmenu=function(){return false}
     document.onmousedown=function(){return false}
   </script>
@@ -21,9 +21,9 @@
     <div id="site_content">
       <div id="slider_image">
         <ul class="round">
-          <li><%= image_tag 'slide5.jpg' %></li>
-          <li><%= image_tag 'slide6.jpg' %></li>
-          <li><%= image_tag 'slide7.jpg' %></li>
+          <li><%= image_tag 'slide5.jpg', title: "магазин пептидов", alt: "купить пептиды" %></li>
+          <li><%= image_tag 'slide6.jpg', title: "пептиды", alt: "купить пептиды украина" %></li>
+          <li><%= image_tag 'slide7.jpg', title: "стимуляторы гормона роста", alt: "магазин пептидов" %></li>
         </ul>
 
       </div><!-- End of slider_image -->

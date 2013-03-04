@@ -7,6 +7,7 @@ class StoreController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @assets = @product.assets
+    @title = @product.title
   end
 
   def empty_cart
@@ -14,6 +15,7 @@ class StoreController < ApplicationController
   end
 
   def delivery_info
+    @title = "Доставка и оплата"
     @delivery_details = DeliveryDetail.all
   end
 
