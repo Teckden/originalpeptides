@@ -10,6 +10,7 @@ gem 'russian', '0.6.0'
 
 gem 'mysql2', '0.3.11'
 gem 'ckeditor', '4.0.2'
+gem 'haml'
 
 # Gems used only for assets and not required
 # in production environments by default.

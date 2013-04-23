@@ -8,15 +8,17 @@ CartTemplate::Application.routes.draw do
   resources :cart_products
   resources :carts
   resources :products
+  resources :default_meta_tags, only: [:index, :show, :edit, :update]
 
 
   get 'admin', to: 'sessions#show'
   get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
+  get 'else', to: 'backend#else'
 
   get 'info', to: 'store#delivery_info', as: 'delivery_info'
   get 'empty_cart', to: 'store#empty_cart', as: 'empty_cart'
-  get "/:id/:custom_url" => 'store#show', as: 'show_item'
+  get "/:custom_url" => 'store#show', as: 'show_item'
   root to: 'store#index', as: 'store'
   # The priority is based upon order of creation:
   # first created -> highest priority.

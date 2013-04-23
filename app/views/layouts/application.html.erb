@@ -1,16 +1,18 @@
 <!DOCTYPE html>
+<%- page_identifier = "#{controller.controller_name}_#{controller.action_name}" %>
 <html>
 <head>
   <title><%= full_title(@title) %></title>
-  <meta name="keywords" content="IGF-1, DSIP, Гонадорелин, Gonadorelin, Melanotan, Melanotan-2, Sermorelin, CJC-1295, PT-141, HGH, HGH 176-191, ipamorelin, MGF, PEG-MGF, механический фактор роста, GHRP-2, Thymosin Beta4, Tb-500, GHRP-6, IGF-1LR3, igflr3, игтропин, kigtropin, хайгетропин, gonadotropin, MOD GRF, igf, ифр, худеем, похудеть, накачяться, мышечьная масса, загар, загореть, сила, выносливость, восстановление, гормон роста, пептиды, пептид, peptides, peptid, инсулиноподобный фактор роста, gormon, похудеть, быстро накачаться, бысторо похудеть, спорт, диета, востоновление">
+  <meta name="description" content="<%= meta_description(page_identifier) %>">
+  <meta name="keywords" content="<%= meta_keywords(page_identifier) %>">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= favicon_link_tag %>
 
   <!-- Cкрипт запрещает использовать правую кнопку на странице, и выделять текст -->
   <script language="JavaScript">
-    document.onselectstart=function(){return false}
-    document.oncontextmenu=function(){return false}
-    document.onmousedown=function(){return false}
+    document.onselectstart=function(){ return false }
+    document.oncontextmenu=function(){ return false }
+    document.onmousedown=function(){ return false }
   </script>
   <%= csrf_meta_tags %>
 </head>
