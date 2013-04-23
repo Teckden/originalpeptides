@@ -6,11 +6,11 @@
 
 <% @products.each do |item| %>
   <div class="catalog_entry">
-    <%= link_to (image_tag item.assets.last.image.url(:thumb), title: "Купить #{item.title}", alt: "как принимать #{item.title}, купить #{item.title} украина" ), show_item_path(item, item.custom_url) %>
-    <h3><%= link_to item.title, show_item_path(item, item.custom_url) %></h3>
+    <%= link_to (image_tag item.assets.last.image.url(:thumb), title: "Купить #{item.title}", alt: "как принимать #{item.title}, купить #{item.title} украина" ), show_item_path(item.custom_url) %>
+    <h3><%= link_to item.title, show_item_path(item.custom_url) %></h3>
     <div class="description">
       <%= truncate(item.description, length: 330).html_safe %>
-      <%= link_to 'подробнее', show_item_path(item, item.custom_url) %>
+      <%= link_to 'подробнее', show_item_path(item.custom_url) %>
     </div>
     <div class="price_line">
       <span class="price"><%= number_to_currency(item.price, unit: "грн.", format: "%n %u") %></span>
@@ -18,4 +18,3 @@
     </div>
   </div>
 <% end %>
-

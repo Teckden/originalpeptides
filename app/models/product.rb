@@ -5,14 +5,23 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :assets, :allow_destroy => true
 
   attr_accessible :description, :price, :title, :available, :producer,
-                        :assets_attributes, :custom_url
+                        :assets_attributes, :custom_url, :meta_description, :meta_keywords
 
   before_destroy :ensure_not_referenced_by_any_cart_products
 
-  validates :title, :description, :price, :producer, presence: true
+  validates :title, :description, :price, :producer, :meta_description, :meta_keywords, presence: true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
   validates :title, uniqueness: true
   validates :assets, presence: true
+  validates :meta_description, :meta_keywords, uniqueness: true
+
+  def self.product_meta_description(custom_url)
+    find_by_custom_url(custom_url).meta_description
+  end
+
+  def self.product_meta_keywords(custom_url)
+    find_by_custom_url(custom_url).meta_keywords
+  end
 
   private
 

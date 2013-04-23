@@ -1,0 +1,7 @@
+%h1 Мета теги на главной странице
+%br
+%br
+%p Мета тег: Описание: #{@meta_tag.meta_description}
+%p Мета тег: Ключевые слова: #{@meta_tag.meta_keywords}
+
+%p.other-params= link_to 'Редактировать', edit_default_meta_tag_path(@meta_tag), class: "btn btn-primary"
