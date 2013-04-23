@@ -1,0 +1,5 @@
+- if notice
+  %p= notice
+%ul.other-params
+  %li= link_to 'Мета теги: Главная страница', DefaultMetaTag.find_by_method("store_index"), class: "btn btn-primary"
+  %li= link_to 'Мета теги: Оплата и доставка', DefaultMetaTag.find_by_method("store_delivery_info"), class: "btn btn-primary"

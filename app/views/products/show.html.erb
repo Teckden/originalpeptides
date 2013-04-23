@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<%- if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
 <div class="details">
   <%= image_tag(@product.assets.last.image.url(:thumb)) %>
