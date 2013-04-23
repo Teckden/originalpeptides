@@ -17,6 +17,14 @@
     <%= f.text_field :title, size: 500 %>
   </div>
   <div class="field">
+    <%= f.label :meta_keywords, "Мета тег: ключевые слова" %>
+    <%= f.text_field :meta_keywords, size: 500 %>
+  </div>
+  <div class="field">
+    <%= f.label :meta_description, "Мета тег: описание" %>
+    <%= f.text_field :meta_description, size: 500 %>
+  </div>
+  <div class="field">
     <%= f.label :description, "Описание" %>
     <%= f.cktext_area :description, id: 'description' %>
   </div>

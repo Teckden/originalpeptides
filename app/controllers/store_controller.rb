@@ -5,9 +5,11 @@ class StoreController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = Product.find_by_custom_url(params[:custom_url])
     @assets = @product.assets
     @title = @product.title
+    @meta_description = @product.meta_description
+    @meta_keywords = @product.meta_keywords
   end
 
   def empty_cart
