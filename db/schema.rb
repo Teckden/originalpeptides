@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113145548) do
+ActiveRecord::Schema.define(:version => 20130422134417) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "username"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(:version => 20121113145548) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "default_meta_tags", :force => true do |t|
+    t.string   "meta_keywords"
+    t.string   "meta_description"
+    t.string   "title"
+    t.string   "method"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "delivery_details", :force => true do |t|
     t.text     "delivery"
     t.datetime "created_at", :null => false
@@ -73,12 +82,14 @@ ActiveRecord::Schema.define(:version => 20121113145548) do
   create_table "products", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.decimal  "price",       :precision => 8, :scale => 2
-    t.boolean  "available",                                 :default => false
+    t.decimal  "price",            :precision => 8, :scale => 2
+    t.boolean  "available",                                      :default => false
     t.string   "producer"
-    t.datetime "created_at",                                                   :null => false
-    t.datetime "updated_at",                                                   :null => false
+    t.datetime "created_at",                                                        :null => false
+    t.datetime "updated_at",                                                        :null => false
     t.string   "custom_url"
+    t.string   "meta_description"
+    t.string   "meta_keywords"
   end
 
 end
