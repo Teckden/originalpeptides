@@ -17,10 +17,12 @@
 /bin/
 /.idea/
 /config/database.yml
-/public/system/
+/config/schema.rb
 /Gemfile.lock
 /tmp/
+/public/system
 /public/system/
 /public/assets/
+/public/assets
 /config/environment.rb
 /config/environments/development.rb
