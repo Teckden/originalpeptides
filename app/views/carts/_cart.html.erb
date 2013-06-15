@@ -18,13 +18,21 @@
         <% end %>
       </td>
       <td style="width: 120px;"><%= link_to item.product.title, show_item_path(item.product.id, item.product.custom_url) %></td>
-      <td><%= number_to_currency(item.total_price, unit: "грн.", format: "%n %u") %></td>
+      <td>
+        <%= number_to_currency(item.total_price('UAH'), unit: 'UAH', format: "%n %u") %>
+        <%- if item.product.russian_price %>
+          <%= number_to_currency(item.total_price('RUB'), unit: 'RUB', format: "%n %u") %>
+        <% end %>
+      </td>
       <td><%= link_to 'X', item, confirm: "Are you sure?", method: :delete %></td>
     </tr>
   <% end %>
   <tr class="total_line">
     <td colspan="2">Total:</td>
-    <td class="total_price"><%= number_to_currency(current_cart.total_price, unit: "грн.", format: "%n %u") %></td>
+    <td class="total_price">
+      <%= number_to_currency(current_cart.total_price('UAH'), unit: 'UAH', format: "%n %u") %>
+      <%= number_to_currency(current_cart.total_price('RUB'), unit: 'RUB', format: "%n %u") %>
+    </td>
   </tr>
 </table>
 <div style="margin-left: 280px; font-size: 90%; color: grey;">Х - удалить товар из корзины</div>

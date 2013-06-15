@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :assets, :allow_destroy => true
 
   attr_accessible :description, :price, :title, :available, :producer,
-                        :assets_attributes, :custom_url, :meta_description, :meta_keywords
+                        :assets_attributes, :custom_url, :meta_description, :meta_keywords, :russian_price
 
   before_destroy :ensure_not_referenced_by_any_cart_products
 
