@@ -9,8 +9,16 @@ class CartProduct < ActiveRecord::Base
   # Uncomenting this line broke nothing and seems to work well, but in case of future bugs I left it in the code
   #before_create { |cart_product| cart_product.price = cart_product.product.price }
 
-  def total_price
-    product.price * quantity
+  def total_price(currency)
+    case currency
+      when 'UAH'
+        product.price * quantity
+      when 'RUB'
+        begin
+          product.russian_price * quantity
+        rescue
+        end
+    end
   end
 
 end

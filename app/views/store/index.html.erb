@@ -13,7 +13,11 @@
       <%= link_to 'подробнее', show_item_path(item.custom_url) %>
     </div>
     <div class="price_line">
-      <span class="price"><%= number_to_currency(item.price, unit: "грн.", format: "%n %u") %></span>
+      <span class="price"><%= number_to_currency(item.price, unit: 'UAH', format: "%n %u") %>
+        <%- if item.russian_price %>
+           / <%= number_to_currency(item.russian_price, unit: 'RUB', format: "%n %u") %>
+        <% end %>
+      </span>
       <%= button_to 'Добавить в Корзину', cart_products_path(product_id: item), class: "btn btn-primary" %>
     </div>
   </div>
