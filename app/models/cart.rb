@@ -27,8 +27,11 @@ class Cart < ActiveRecord::Base
     current_item
   end
 
-  def total_price
-    cart_products.to_a.sum { |item| item.total_price }
+  def total_price(currency)
+    begin
+      cart_products.to_a.sum { |item| item.total_price(currency) }
+    rescue
+    end
   end
 
 end
