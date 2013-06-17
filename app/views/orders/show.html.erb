@@ -14,20 +14,23 @@
   <tr>
     <th>Наименование</th>
     <th>Количество</th>
-    <th>Цена</th>
+    <th>Цена в гривнах</th>
+    <th>Цена в рублях</th>
   </tr>
   <% @order.cart_products.each do |item| %>
 
   <tr>
     <td><%= item.product.title %></td>
     <td><%= item.quantity %></td>
-    <td><%= number_to_currency(item.total_price, unit: "грн.", format: "%n %u") %></td>
+    <td><%= number_to_currency(item.total_price('UAH'), unit: 'UAH', format: "%n %u") %></td>
+    <td><%= number_to_currency(item.total_price('RUB'), unit: 'RUB', format: "%n %u") %></td>
   </tr>
 
   <% end %>
 
   <tr class="total_line">
     <td colspan="2">Total:</td>
-    <td class="total_price"><%= number_to_currency(@order.cart_products.map(&:total_price).sum, unit: "грн.", format: "%n %u") %></td>
+    <td class="total_price"><%= number_to_currency(@order.cart_products.map{|item| item.total_price('UAH')}.sum, unit: 'UAH', format: "%n %u") %></td>
+    <td class="total_price"><%= number_to_currency(@order.cart_products.map{|item| item.total_price('RUB')}.sum, unit: 'RUB', format: "%n %u") %></td>
   </tr>
 </table>
