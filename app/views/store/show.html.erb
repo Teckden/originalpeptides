@@ -13,7 +13,7 @@
     </div>
   </div><!-- close #to_the_left -->
   <div class="to_the_right">
-    <span class="price">Цена: <%= number_to_currency(@product.price, unit: "грн.", format: "%n %u") %></span>
+    <span class="price">Цена: <%= number_to_currency(@product.price, unit: "UAH", format: "%n %u") %> / <%= number_to_currency(@product.russian_price, unit: "RUB", format: "%n %u") %></span>
     <br/>
     <%= button_to 'Добавить в Корзину', cart_products_path(product_id: @product), class: "btn btn-primary" %>
   </div>
