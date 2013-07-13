@@ -1,0 +1,241 @@
+html, body
+  background: url("blog/line-tile.png") repeat scroll left top #252525
+  line-height: 1
+  -moz-font-feature-settings: inherit
+  -moz-font-language-override: inherit
+  border: 0 none
+  font-family: inherit
+  font-size: 100%
+  font-size-adjust: inherit
+  font-stretch: inherit
+  font-style: inherit
+  font-variant: inherit
+  font-weight: inherit
+  margin: 0
+  padding: 0
+  vertical-align: baseline
+
+body
+  margin: 0 auto
+  max-width: 1200px
+  position: relative
+  font-size: 1.15em
+  color: #222222
+  line-height: 1.5em
+  font-family: "PT Serif",Georgia,Times,"Times New Roman",serif
+
+  h1, h2, h3, h4, h5, h6
+    font-weight: bold
+    text-rendering: optimizelegibility
+
+  a
+    transition: color 0.3s ease 0s
+
+  > div
+    background: url("blog/noise.png") repeat scroll left top #F2F2F2
+    border-bottom: 1px solid #BFBFBF
+
+  > div > div
+    background: url("blog/noise.png") repeat scroll left top #F8F8F8
+    border-right: 1px solid #E0E0E0
+
+  header
+    background: none repeat scroll 0 0 #333333
+    font-size: 1.3em
+    padding: 1.5em 55px
+
+    h1
+      display: inline-block
+      margin: 0
+      font-size: 2.2em
+      font-weight: normal
+      line-height: 1.2em
+
+      a, a:visited, a:hover
+        color: #F2F2F2
+        text-decoration: none
+    h2
+      color: #AAAAAA
+      font-size: 1em
+      font-weight: normal
+      margin: 0.2em 0 0
+
+  > header h1, h1, h2, h3, h4, h5, h6
+    font-family: "PT Serif","Georgia","Helvetica Neue",Arial,sans-serif
+
+  nav
+    font-size: 0.9em
+    background: url('blog/noise.png') repeat scroll 0 0%, linear-gradient(#E0E0E0, #CCCCCC, #B0B0B0) repeat scroll 0 0 transparent
+    border-bottom: 1px solid #8C8C8C
+    border-top: 1px solid #F2F2F2
+    padding: 0.35em 55px
+    position: relative
+    display: block
+
+    a
+      color: #6B6B6B
+      float: left
+      font-family: "PT Serif","Georgia","Helvetica Neue",Arial,sans-serif
+      font-size: 1.1em
+      padding: 0.1em 0
+      text-decoration: none
+      text-shadow: 0 1px #EBEBEB
+
+    a:hover
+      color: #2B2B2B
+
+    ul.main-navigation
+      border: 0 none
+      float: left
+      margin: 0
+      overflow: hidden
+      padding: 0.15em 0 0
+      list-style-type: disc
+      font-size: 0.9em
+
+      li
+        margin: 0
+        display: inline
+        float: left
+        list-style-image: none
+        list-style-type: none
+        padding-left: 0
+        padding-right: 0
+        white-space: nowrap
+
+      li + li
+        border-left: 1px solid #B0B0B0
+        margin-left: 0.8em
+
+        a
+          border-left: 1px solid #DEDEDE
+          padding-left: 0.8em
+
+  #main
+    margin: 0 auto
+    padding: 0
+
+    #content
+      margin-right: 300px
+      overflow: hidden
+      position: relative
+
+      .blog-index
+        padding-bottom: 0
+        padding-top: 0
+
+        article + article
+          background: url("blog/dotted-border.png") top left repeat-x transparent
+
+        article
+          padding-top: 2em
+          padding-left: 55px
+          padding-right: 55px
+          display: block
+
+          a
+            white-space: pre-wrap
+            word-wrap: break-word
+
+          h1
+            font-size: 1.8em
+            font-weight: 700
+
+            a:hover
+              color: #0181EB
+              text-decoration: underline
+
+          p
+            color: #AAAAAA
+            font-size: 0.7em
+            margin: 0
+
+          header
+            background: none repeat scroll 0 0 transparent
+            padding: 0
+            padding-top: 1.5em
+            margin-bottom: 1.2em
+            position: relative
+
+            h1
+              margin: 0
+              line-height: 1.1em
+
+              a
+                color: inherit
+                text-decoration: none
+
+            p.meta
+              position: absolute
+              text-transform: uppercase
+              top: 0
+              font-family: "PT Serif","Georgia","Helvetica Neue",Arial,sans-serif
+
+      .pagination
+        background: url("blog/dotted-border.png") top left repeat-x scroll transparent
+        font-size: 0.95em
+        position: relative
+        text-align: center
+        padding-top: 1.5em
+        padding-bottom: 1.5em
+        margin-left: 55px
+        margin-right: 55px
+
+        a
+          color: #AAAAAA
+          text-decoration: none
+          &:hover
+            color: #0181EB
+
+        a.archive:before,
+        a.archive:after
+          content: "—"
+          padding: 0 0.3em
+
+        a.prev
+          left: 0
+          position: absolute
+
+        a.next
+          right: 0
+          position: absolute
+
+      > div, > article
+        float: left
+        width: 100%
+
+  article a
+    white-space: pre-wrap
+    word-wrap: break-word
+
+  footer
+    background: url('blog/noise.png') repeat scroll 0 0%, linear-gradient(#E0E0E0, #CCCCCC, #B0B0B0) repeat scroll 0 0 transparent
+    border-bottom-left-radius: 0.4em
+    border-bottom-right-radius: 0.4em
+    border-top: 1px solid #f2f2f2
+    color: #232323
+    font-size: 0.8em
+    font-family: "PT Serif","Helvetica Neue",Arial,sans-serif
+    margin-bottom: 3em
+    padding: 1em 55px
+    position: relative
+    text-shadow: 0 1px #D9D9D9
+    z-index: 1
+    display: block
+
+    p:last-child
+      margin: 0
+
+  header:after,
+  nav:after,
+  #main:after,
+  #content > article:after,
+  #content > div > article:after,
+  #content > div > section:after,
+  .pagination:after,
+  fotter:after
+    clear: both
+    content: ''
+    display: table
+
+

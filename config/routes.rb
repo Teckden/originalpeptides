@@ -1,7 +1,6 @@
 CartTemplate::Application.routes.draw do
 
-
-  
+  resources :posts
   resources :delivery_details, except: [:show]
   resources :sessions, only: [:show, :new, :create, :destroy]
   resources :orders
