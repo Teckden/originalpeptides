@@ -1,0 +1,13 @@
+.blog-index
+  - @posts.each do |article|
+    %article
+      %header
+        %h1.entry-title= link_to article.title, '#'
+        %p.meta
+          %time{"data-updated" => "true", pubdate: '', datetime: "#{article.updated_at}"}
+            #{article.updated_at.strftime("%b %-d")}<span>TH</span>, #{article.updated_at.strftime("%Y")}
+      .entry-content
+  .pagination
+    = link_to '← Предыдущие', '#', class: 'prev'
+    = link_to 'Архив Блога', '#', class: 'archive'
+    = link_to 'Более Новые →', '#', class: 'next'
