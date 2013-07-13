@@ -6,6 +6,8 @@
 / <![endif
 %head
   %title= full_title(@title)
+
+  -# Meta Tags
   %meta{charset: "utf-8"}/
   %meta{name: 'author', content: 'Serg'}
   %meta{content: meta_description(''), name: "description"}
@@ -14,9 +16,11 @@
   %meta{content: "320", name: "MobileOptimized"}
   %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
 
+  -#Styles
   = stylesheet_link_tag "blog", media: "all"
   %link{href: "http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic", rel: "stylesheet", type: "text/css"}
   %link{href: "http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic", rel: "stylesheet", type: "text/css"}
+
   = favicon_link_tag
   / Cкрипт запрещает использовать правую кнопку на странице, и выделять текст
   %script{language: "JavaScript"}
