@@ -10,28 +10,18 @@
   <%= javascript_include_tag "js_for_admin.js" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body class='<%= controller.controller_name %>'>
   <div class="admin_layout">
   <div id="main">
     
-    <header>
-      <div id="logo">
-        <%= link_to (image_tag 'logo.png'), admin_path %>
-      </div>
-      <div id="slogan">  
-        <h1>100% <span>Canada</span></h1> 
-        <h2>Выбирай только качественную продукцию</h2>
-        <h2 style="margin-left: 100px"><%= link_to 'originalpepides.com.ua', "http://originalpepides.com.ua" %></h2>
-        <h2 class="phone">тел.: +380676970261</h2>
-        <h2 class="email">email: originalpeptides@gmail.con</h2>
-      </div>
-    </header>
     <% unless session[:user_id].nil? %>
     <div id="menubar">
       <ul>
         <li><%= link_to 'Продукция', products_path %></li>
         <li><%= link_to 'Заказы', orders_path %></li>
         <li><%= link_to 'Другие параметры', else_path %></li>
+        <li><%= link_to 'Выйти', {controller: 'sessions', action: 'destroy'}, confirm: 'Вы уверены что хотите выйти?', method: :delete %></li>
       </ul>
     </div><!--close cart_button-->
     <% end %>

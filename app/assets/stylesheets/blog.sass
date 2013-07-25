@@ -1,3 +1,5 @@
+@import "bootstrap"
+
 html, body
   background: url("blog/line-tile.png") repeat scroll left top #252525
   line-height: 1
@@ -72,6 +74,7 @@ body
     position: relative
     display: block
 
+
     a
       color: #6B6B6B
       float: left
@@ -94,6 +97,7 @@ body
       font-size: 0.9em
 
       li
+        line-height: 1.9em
         margin: 0
         display: inline
         float: left
@@ -171,6 +175,14 @@ body
               top: 0
               font-family: "PT Serif","Georgia","Helvetica Neue",Arial,sans-serif
 
+            p.admin-edit
+              margin-top: 1em
+              a
+                text-decoration: none
+                color: #644080
+                &:hover
+                  color: #122346
+
       .pagination
         background: url("blog/dotted-border.png") top left repeat-x scroll transparent
         font-size: 0.95em
@@ -180,12 +192,19 @@ body
         padding-bottom: 1.5em
         margin-left: 55px
         margin-right: 55px
+        border: none
 
         a
+          background: none
           color: #AAAAAA
           text-decoration: none
+          border: none
           &:hover
             color: #0181EB
+
+        a.archive
+          width: 100%
+          text-align: center
 
         a.archive:before,
         a.archive:after
