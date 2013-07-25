@@ -18,24 +18,34 @@
 
   -#Styles
   = stylesheet_link_tag "blog", media: "all"
-  %link{href: "http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic", rel: "stylesheet", type: "text/css"}
-  %link{href: "http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic", rel: "stylesheet", type: "text/css"}
+  = stylesheet_link_tag "http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+  = stylesheet_link_tag "http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+  = yield :css_includes
+
+  -#Javascripts
+  = javascript_include_tag 'jquery_all'
 
   = favicon_link_tag
   / Cкрипт запрещает использовать правую кнопку на странице, и выделять текст
   %script{language: "JavaScript"}
     document.onselectstart=function(){ return false }
     document.oncontextmenu=function(){ return true }
-    document.onmousedown=function(){ return false }
+    document.onmousedown=function(){ return true }
   = csrf_meta_tags
+
 %body{class: controller.controller_name}
+
   %header{role: "banner"}
     %h1= link_to 'Original Peptides Blog', '/'
     %h2 A blogging framework for hackers
+
   %nav{role: "navigation"}
     %ul.main-navigation
       %li= link_to 'Blog', posts_path
-      %li= link_to 'Archives', '#'
+      %li= link_to 'Архив', '#'
+      - if admin?
+        %li= link_to 'Добавить статью', new_post_path
+
   #main
     #content
       = yield
