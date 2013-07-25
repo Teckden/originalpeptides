@@ -2,15 +2,13 @@ CartTemplate::Application.routes.draw do
 
   resources :posts
   resources :delivery_details, except: [:show]
-  resources :sessions, only: [:show, :new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
   resources :orders
   resources :cart_products
   resources :carts
   resources :products
   resources :default_meta_tags, only: [:index, :show, :edit, :update]
 
-
-  get 'admin', to: 'sessions#show'
   get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
   get 'else', to: 'backend#else'
