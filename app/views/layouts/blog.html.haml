@@ -1,0 +1,54 @@
+!!!
+/[if IEMobile 7 ] <html class="no-js iem7">
+/[if lt IE 9] <html class="no-js lte-ie8">
+/ [if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!
+-#%html.no-js{lang: "en"} ????????????????????????????????????????????????????????????
+/ <![endif
+%head
+  %title= full_title(@title)
+
+  -# Meta Tags
+  %meta{charset: "utf-8"}/
+  %meta{name: 'author', content: 'Serg'}
+  %meta{content: meta_description(''), name: "description"}
+  %meta{content: meta_keywords(''), name: "keywords"}
+  %meta{content: "True", name: "HandheldFriendly"}
+  %meta{content: "320", name: "MobileOptimized"}
+  %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+
+  -#Styles
+  = stylesheet_link_tag "blog", media: "all"
+  = stylesheet_link_tag "http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+  = stylesheet_link_tag "http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+  = yield :css_includes
+
+  -#Javascripts
+  = javascript_include_tag 'jquery_all'
+
+  = favicon_link_tag
+  / Cкрипт запрещает использовать правую кнопку на странице, и выделять текст
+  %script{language: "JavaScript"}
+    document.onselectstart=function(){ return false }
+    document.oncontextmenu=function(){ return true }
+    document.onmousedown=function(){ return true }
+  = csrf_meta_tags
+
+%body{class: controller.controller_name}
+
+  %header{role: "banner"}
+    %h1= link_to 'Original Peptides Blog', '/'
+    %h2 A blogging framework for hackers
+
+  %nav{role: "navigation"}
+    %ul.main-navigation
+      %li= link_to 'Blog', posts_path
+      %li= link_to 'Архив', '#'
+      - if admin?
+        %li= link_to 'Добавить статью', new_post_path
+
+  #main
+    #content
+      = yield
+
+  %footer{ role: 'content-info'}
+    %p Copyright © 2013 - OriginalPeptides

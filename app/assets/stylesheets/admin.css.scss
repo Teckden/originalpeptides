@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "application";
+@import "errors_view";
+@import "form";
+@import "lightbox";
+@import "orders";
+@import "products";
+
 .admin_layout {
   
   body {
@@ -64,8 +71,26 @@
       font-size: 150%;
     }
   }
+  .other-params {
+    li {
+      display: block !important;
+    }
+    a {
+      color: #FFF;
+    }
+  }
+  .content_item {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+
+    h1 {
+      width: 100%;
+      margin-left: 0;
+      padding-left: 0;
+    }
+    hr {
+      width: 100%;
+    }
+  }
 }
-
-
-
-
