@@ -1,13 +1,9 @@
 # coding: utf-8
 class SessionsController < ApplicationController
 
-  before_filter :confirm_logged_in, only: [:show]
+  before_filter :confirm_logged_in, only: [:destroy]
 
   layout 'admin'
-
-  def show
-    
-  end
 
   def new
   end
@@ -17,7 +13,7 @@ class SessionsController < ApplicationController
     if authorized_user
       session[:user_id] = authorized_user.id
       session[:username] = authorized_user.username
-      redirect_to admin_path, :notice => "Вы вошли в систему."
+      redirect_to login_path, :notice => "Вы вошли в систему."
     else
       redirect_to login_path, :notice => "Неправильное имя пользователя или пароль." 
     end
@@ -26,7 +22,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:username] = nil
-    redirect_to login_url, notice: "Вы вышли из системы"
+    redirect_to login_path  , notice: "Вы вышли из системы"
   end
 
 end

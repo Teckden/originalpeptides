@@ -1,0 +1,19 @@
+.blog-index
+  - @posts.each do |article|
+    %article
+      %header
+        %h1.entry-title= link_to article.title, post_path(article)
+        %p.meta
+          %time{"data-updated" => "true", pubdate: '', datetime: "#{article.updated_at}"}
+            #{article.updated_at.strftime("%b %-d")}<span>TH</span>, #{article.updated_at.strftime("%Y")}
+        - if admin?
+          %p.admin-edit
+            = link_to 'Редактировать', edit_post_path(article)
+            |
+            = link_to 'Удалить', article, method: :delete, data: {confirm: 'Вы действительно хотите удалить данную статью?'}
+
+      .entry-content
+  .pagination{align: 'center'}
+    = link_to '← Предыдущие', '#', class: 'prev'
+    = link_to 'Архив Блога', '#', class: 'archive'
+    = link_to 'Более Новые →', '#', class: 'next'
