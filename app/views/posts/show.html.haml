@@ -1,2 +1,20 @@
-%h1= @post.title
-.content= @post.content
+- content_for :css_includes do
+  = stylesheet_link_tag 'blog/show_article'
+
+.blog-index
+  %article
+    %header
+      %h1= @post.title
+      %p.meta
+        %time{"data-updated" => "true", pubdate: '', datetime: "#{@post.updated_at}"}
+          = Russian::strftime(@post.updated_at, "%d %B %Y")
+
+    - if admin?
+      %p.admin-edit
+        = link_to 'Редактировать', edit_post_path(@post)
+        |
+        = link_to 'Удалить', @post, method: :delete, data: {confirm: 'Вы действительно хотите удалить данную статью?'}
+
+    .entry-content= @post.content
+    .footer
+      %p.meta Опубликовано Админом, #{Russian::strftime(@post.created_at, "%d %B %Y")} в #{Russian::strftime(@post.updated_at, "%k:%M")}
