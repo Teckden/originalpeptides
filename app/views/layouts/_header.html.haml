@@ -1,29 +1,3 @@
--#<header>
--#  <div id="logo">
--#    <%= link_to (image_tag 'logo.png', title: "Купить пептиды", alt: "магазин, пептиды, купить, как принимать пептиды"), store_path %>
--#  </div>
--#  <div id="slogan">
--#    <h1>100% <span>Canada</span></h1>
--#    <h2>Выбирай только качественную продукцию</h2>
--#    <h2 style="margin-left: 100px"><%= link_to 'originalpeptides.com.ua', "http://originalpeptides.com.ua" %></h2>
--#    <h2 class="phone">89205828770 на Россию</h2>
--#    <h2 class="phone">0676050747 на Украину</h2>
--#    <h2 class="email">email на Россию: <%= mail_to 'arm.iron.men@mail.ru' %></h2>
--#    <h2 class="email">email на Украину: <%= mail_to 'originalpeptides@gmail.com' %></h2>
--#  </div>
--#
--#  <div id="cart_button">
--#    <div class="btn-group">
--#      <%= button_to "Оплата и Доставка", delivery_info_path, class: "btn", style: "margin-right: -10px", method: :get %>
--#      <% if session[:cart_id].nil?  %>
--#        <%= button_to "Корзина", empty_cart_path, class: "btn", method: :get %>
--#      <% else %>
--#        <%= button_to "Корзина", current_cart, class: "btn", method: :get %>
--#      <% end %>
--#    </div>
--#  </div><!--close cart_button-->
--#</header>
-
 %header
   #logo
     = link_to (image_tag 'logo.png', title: "Купить пептиды", alt: "магазин, пептиды, купить, как принимать пептиды"), store_path
