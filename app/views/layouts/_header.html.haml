@@ -1,0 +1,23 @@
+%header
+  #logo
+    = link_to (image_tag 'logo.png', title: "Купить пептиды", alt: "магазин, пептиды, купить, как принимать пептиды"), store_path
+  #slogan
+    %h1
+      100%
+      %span Canada
+    %h2 Выбирай только качественную продукцию
+    %h2{:style => "margin-left: 100px"}= link_to 'originalpeptides.com.ua', "http://originalpeptides.com.ua"
+    %h2.phone 89205828770 на Россию
+    %h2.phone 0676050747 на Украину
+    %h2.email
+      email на Россию: #{mail_to 'arm.iron.men@mail.ru'}
+    %h2.email
+      email на Украину: #{mail_to 'originalpeptides@gmail.com'}
+  #cart_button
+    .btn-group
+      = button_to 'Блог', posts_path, class: 'btn blog-btn', method: :get, form: {target: '_blank'}
+      = button_to "Оплата и Доставка", delivery_info_path, class: "btn delivery-info-btn", method: :get
+      - if session[:cart_id].nil?
+        = button_to "Корзина", empty_cart_path, class: "btn", method: :get
+      - else
+        = button_to "Корзина", current_cart, class: "btn", method: :get
