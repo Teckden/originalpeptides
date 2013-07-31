@@ -2,17 +2,18 @@
   - @posts.each do |article|
     %article
       %header
-        %h1.entry-title= link_to article.title, post_path(article)
+        %h1= link_to article.title, post_path(article)
         %p.meta
           %time{"data-updated" => "true", pubdate: '', datetime: "#{article.updated_at}"}
-            #{article.updated_at.strftime("%b %-d")}<span>TH</span>, #{article.updated_at.strftime("%Y")}
-        - if admin?
-          %p.admin-edit
-            = link_to 'Редактировать', edit_post_path(article)
-            |
-            = link_to 'Удалить', article, method: :delete, data: {confirm: 'Вы действительно хотите удалить данную статью?'}
+            = Russian::strftime(article.updated_at, "%d %B %Y")
 
       .entry-content
+        = truncate(article.content, length: 250, omission: "... (#{ link_to 'продолжить', article})").html_safe
+      - if admin?
+        %p.admin-edit
+          = link_to 'Редактировать', edit_post_path(article)
+          |
+          = link_to 'Удалить', article, method: :delete, data: {confirm: 'Вы действительно хотите удалить данную статью?'}
   .pagination{align: 'center'}
     = link_to '← Предыдущие', '#', class: 'prev'
     = link_to 'Архив Блога', '#', class: 'archive'
