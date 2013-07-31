@@ -29,15 +29,15 @@
   / Cкрипт запрещает использовать правую кнопку на странице, и выделять текст
   %script{language: "JavaScript"}
     document.onselectstart=function(){ return false }
-    document.oncontextmenu=function(){ return true }
-    document.onmousedown=function(){ return true }
+    document.oncontextmenu=function(){ return false }
+    document.onmousedown=function(){ return false }
   = csrf_meta_tags
 
 %body{class: controller.controller_name}
 
   %header{role: "banner"}
     %h1= link_to 'Original Peptides Blog', '/'
-    %h2 A blogging framework for hackers
+    %h2 Только у нас Вы найдете лучшее соотношения цены и качества
 
   %nav{role: "navigation"}
     %ul.main-navigation
@@ -48,6 +48,8 @@
 
   #main
     #content
+      - if notice
+        %p#blog_notice= notice
       = yield
 
   %footer{ role: 'content-info'}
