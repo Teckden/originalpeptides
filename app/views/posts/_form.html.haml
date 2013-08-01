@@ -14,7 +14,7 @@
 
   .field
     = f.label :content, 'Текст статьи:'
-    = f.text_area :content
+    = f.cktext_area :content
 
   - button_name = controller.action_name == 'new' ? 'Добавить статью' : 'Сохранить'
 
