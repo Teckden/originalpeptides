@@ -1,6 +1,8 @@
 CartTemplate::Application.routes.draw do
 
-  resources :posts
+  scope '/blog' do
+    resources :posts
+  end
   resources :delivery_details, except: [:show]
   resources :sessions, only: [:new, :create, :destroy]
   resources :orders
