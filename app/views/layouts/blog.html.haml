@@ -23,14 +23,18 @@
   = yield :css_includes
 
   -#Javascripts
-  = javascript_include_tag 'jquery_all'
+  -if admin?
+    = javascript_include_tag 'js_for_admin'
+  -else
+    = javascript_include_tag 'jquery_all'
 
   = favicon_link_tag
   / Cкрипт запрещает использовать правую кнопку на странице, и выделять текст
-  %script{language: "JavaScript"}
-    document.onselectstart=function(){ return false }
-    document.oncontextmenu=function(){ return false }
-    document.onmousedown=function(){ return false }
+  - if Rails.env == 'production'
+    %script{language: "JavaScript"}
+      document.onselectstart=function(){ return false }
+      document.oncontextmenu=function(){ return false }
+      document.onmousedown=function(){ return false }
   = csrf_meta_tags
 
 %body{class: controller.controller_name}
