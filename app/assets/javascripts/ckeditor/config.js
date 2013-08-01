@@ -26,8 +26,15 @@ CKEDITOR.editorConfig = function( config )
     { name: 'insert', items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ] }
 
   ];
-  config.uiColor = '#4169E0';
-  
+
+  if ($('body').hasClass('posts')) {
+      config.uiColor = '#B2B2B2';
+      config.enterMode = CKEDITOR.ENTER_BR;
+  }
+  else {
+      config.uiColor = '#4169E0';
+  }
+
   /* Filebrowser routes */
   // The location of an external file browser, that should be launched when "Browse Server" button is pressed.
   config.filebrowserBrowseUrl = "/ckeditor/attachment_files";

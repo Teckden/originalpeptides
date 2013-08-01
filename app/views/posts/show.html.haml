@@ -15,6 +15,6 @@
         |
         = link_to 'Удалить', @post, method: :delete, data: {confirm: 'Вы действительно хотите удалить данную статью?'}
 
-    .entry-content= @post.content
+    .entry-content= @post.content.html_safe
     .footer
       %p.meta Опубликовано Админом, #{Russian::strftime(@post.created_at, "%d %B %Y")} в #{Russian::strftime(@post.updated_at, "%k:%M")}
