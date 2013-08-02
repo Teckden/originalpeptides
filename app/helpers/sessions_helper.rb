@@ -13,7 +13,7 @@ module SessionsHelper
   end
 
   def blog_admin?
-    session[:blog_admin]
+    session[:blog_admin] && session[:user_id]
   end
 
 end
