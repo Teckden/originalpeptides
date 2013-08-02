@@ -23,7 +23,7 @@
   = yield :css_includes
 
   -#Javascripts
-  -if admin?
+  -if blog_admin?
     = javascript_include_tag 'js_for_admin'
   -else
     = javascript_include_tag 'jquery_all'
@@ -41,14 +41,15 @@
 
   %header{role: "banner"}
     %h1= link_to 'Original Peptides Blog', '/'
-    %h2 Только у нас Вы найдете лучшее соотношения цены и качества
+    %h2 Только у нас Вы найдете лучшее соотношение цены и качества
 
   %nav{role: "navigation"}
     %ul.main-navigation
       %li= link_to 'Blog', posts_path
       %li= link_to 'Архив', '#'
-      - if admin?
+      - if blog_admin?
         %li= link_to 'Добавить статью', new_post_path
+        %li= link_to 'Выйти', blog_admin_logout_path, confirm: "Вы уверены что хотите выйти?", method: :delete
 
   #main
     #content

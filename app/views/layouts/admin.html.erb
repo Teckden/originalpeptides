@@ -21,7 +21,7 @@
         <li><%= link_to 'Продукция', products_path %></li>
         <li><%= link_to 'Заказы', orders_path %></li>
         <li><%= link_to 'Другие параметры', else_path %></li>
-        <li><%= link_to 'Блог', posts_path %></li>
+        <li><%= link_to 'Блог', posts_path(blog_admin: true) %></li>
         <li><%= link_to 'Выйти', {controller: 'sessions', action: 'destroy'}, confirm: 'Вы уверены что хотите выйти?', method: :delete %></li>
       </ul>
     </div><!--close cart_button-->
