@@ -9,7 +9,7 @@
         %time{"data-updated" => "true", pubdate: '', datetime: "#{@post.updated_at}"}
           = Russian::strftime(@post.updated_at, "%d %B %Y")
 
-    - if admin?
+    - if blog_admin?
       %p.admin-edit
         = link_to 'Редактировать', edit_post_path(@post)
         |

@@ -1,6 +1,8 @@
 CartTemplate::Application.routes.draw do
 
-  resources :posts
+  scope '/blog' do
+    resources :posts
+  end
   resources :delivery_details, except: [:show]
   resources :sessions, only: [:new, :create, :destroy]
   resources :orders
@@ -11,6 +13,7 @@ CartTemplate::Application.routes.draw do
 
   get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
+  delete 'blog_admin_logout', to: 'posts#blog_admin_logout'
   get 'else', to: 'backend#else'
 
   get 'info', to: 'store#delivery_info', as: 'delivery_info'
