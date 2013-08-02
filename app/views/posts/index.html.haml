@@ -9,7 +9,7 @@
 
       .entry-content
         = truncate(article.content, length: 250, omission: "... (#{ link_to 'продолжить', article})").html_safe
-      - if admin?
+      - if blog_admin?
         %p.admin-edit
           = link_to 'Редактировать', edit_post_path(article)
           |

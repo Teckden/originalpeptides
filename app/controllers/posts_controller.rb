@@ -2,6 +2,7 @@
 class PostsController < ApplicationController
   layout 'blog'
   def index
+    session[:blog_admin] = true if params[:blog_admin]
     @posts = Post.all.reverse
   end
 
@@ -44,6 +45,11 @@ class PostsController < ApplicationController
     else
       redirect_to post_path(@post), notice: 'К сожалению статья не была удалена. Свяжитесь с разроботчиком'
     end
+  end
+
+  def blog_admin_logout
+    session[:blog_admin] = nil
+    redirect_to posts_path
   end
 
 end
