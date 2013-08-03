@@ -30,7 +30,7 @@
 
   = favicon_link_tag
   / Cкрипт запрещает использовать правую кнопку на странице, и выделять текст
-  - if Rails.env == 'production'
+  - if (Rails.env == 'production') && (blog_admin? == nil)
     %script{language: "JavaScript"}
       document.onselectstart=function(){ return false }
       document.oncontextmenu=function(){ return false }
