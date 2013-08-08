@@ -1,6 +1,7 @@
 # coding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :init_meta_tags
 
 
   protected
@@ -17,12 +18,16 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def current_cart
-      Cart.find(session[:cart_id])
-    rescue ActiveRecord::RecordNotFound
-      cart = Cart.create
-      session[:cart_id] = cart.id
-      cart
-    end
+  def current_cart
+    Cart.find(session[:cart_id])
+  rescue ActiveRecord::RecordNotFound
+    cart = Cart.create
+    session[:cart_id] = cart.id
+    cart
+  end
+
+  def init_meta_tags
+    @meta_tags = {}
+  end
 
 end

@@ -1,0 +1,54 @@
+!!!
+- page_identifier = "#{controller.controller_name}_#{controller.action_name}"
+%html
+  %head
+    %title= full_title(@title)
+    - @meta_tags.each do |key, value|
+      %meta{name: key, content: value}
+
+    = stylesheet_link_tag    "application", :media => "all"
+    = favicon_link_tag
+
+    / Cкрипт запрещает использовать правую кнопку на странице, и выделять текст
+    - if Rails.env == 'production'
+      %script{:language => "JavaScript"}
+        document.onselectstart=function(){ return false }
+        document.oncontextmenu=function(){ return false }
+        document.onmousedown=function(){ return false }
+    = csrf_meta_tags
+  %body{:class => controller.controller_name}
+
+    = render 'layouts/header'
+
+    #site_content
+      #slider_image
+        %ul.round
+          %li= image_tag 'slide5.jpg', title: "магазин пептидов", alt: "купить пептиды"
+          %li= image_tag 'slide6.jpg', title: "пептиды", alt: "купить пептиды украина"
+          %li= image_tag 'slide7.jpg', title: "стимуляторы гормона роста", alt: "магазин пептидов"
+
+      #content
+        .content_item
+          %p= yield
+
+        %br{:style => "clear:both;"}/
+
+      .vk_widget
+        %script{:src => "//vk.com/js/api/openapi.js?64", :type => "text/javascript"}
+        #vk_groups
+        :javascript
+          VK.Widgets.Group("vk_groups", {mode: 1, wide: 1, width: "300", height: "150"}, 48829478);
+
+    = render 'layouts/footer'
+
+    = javascript_include_tag "jquery_all.js"
+    = javascript_include_tag "jquery.js"
+    = javascript_include_tag "jquery.roundabout.js"
+    :javascript
+      $(document).ready(function() {
+          $('.round').roundabout({
+              autoplay: true,
+              autoplayDuration: 5000,
+              autoplayPauseOnHover: true
+          });
+      });
