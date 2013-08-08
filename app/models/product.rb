@@ -15,14 +15,6 @@ class Product < ActiveRecord::Base
   validates :assets, presence: true
   validates :meta_description, :meta_keywords, uniqueness: true
 
-  def self.product_meta_description(custom_url)
-    find_by_custom_url(custom_url).meta_description
-  end
-
-  def self.product_meta_keywords(custom_url)
-    find_by_custom_url(custom_url).meta_keywords
-  end
-
   private
 
     def ensure_not_referenced_by_any_cart_products
