@@ -1,5 +1,7 @@
 # coding: utf-8
 class StoreController < ApplicationController
+  before_filter :find_default_meta_tags, only: [:index, :delivery_info]
+
   def index
     @products = Product.all.reverse
   end
@@ -8,8 +10,8 @@ class StoreController < ApplicationController
     @product = Product.find_by_custom_url(params[:custom_url])
     @assets = @product.assets
     @title = @product.title
-    @meta_description = @product.meta_description
-    @meta_keywords = @product.meta_keywords
+    @meta_tags[:keywords] = @product.meta_keywords
+    @meta_tags[:description] = @product.meta_description
   end
 
   def empty_cart
@@ -19,6 +21,13 @@ class StoreController < ApplicationController
   def delivery_info
     @title = "Доставка и оплата"
     @delivery_details = DeliveryDetail.all
+  end
+
+  private
+
+  def find_default_meta_tags
+    @meta_tags[:keywords] = DefaultMetaTag.find_by_method(controller_name + "_" + action_name).meta_keywords
+    @meta_tags[:description] = DefaultMetaTag.find_by_method(controller_name + "_" + action_name).meta_description
   end
 
 end
