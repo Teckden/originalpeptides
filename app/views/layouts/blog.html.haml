@@ -9,9 +9,8 @@
 
   -# Meta Tags
   %meta{charset: "utf-8"}/
-  %meta{name: 'author', content: 'Serg'}
-  %meta{content: meta_description(''), name: "description"}
-  %meta{content: meta_keywords(''), name: "keywords"}
+  - @meta_tags.each do |key, value|
+    %meta{name: key, content: value}
   %meta{content: "True", name: "HandheldFriendly"}
   %meta{content: "320", name: "MobileOptimized"}
   %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
@@ -49,6 +48,7 @@
       %li= link_to 'Архив', '#'
       - if blog_admin?
         %li= link_to 'Добавить статью', new_post_path
+        %li= link_to 'Редактировать мета теги', edit_meta_tags_path(), title: 'Редактировать мета теги для главной страници'
         %li= link_to 'Выйти', blog_admin_logout_path, confirm: "Вы уверены что хотите выйти?", method: :delete
 
   #main

@@ -1,6 +1,8 @@
 # coding: utf-8
 class PostsController < ApplicationController
+  before_filter :find_default_meta_tags, only: [:index]
   layout 'blog'
+
   def index
     session[:blog_admin] = true if params[:blog_admin]
     @posts = Post.all.reverse
@@ -8,6 +10,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @meta_tags[:keywords] = @post.meta_keywords
+    @meta_tags[:description] = @post.meta_description
   end
 
   def new
