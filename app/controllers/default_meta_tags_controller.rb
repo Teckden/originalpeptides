@@ -1,7 +1,7 @@
 # coding: utf-8
 class DefaultMetaTagsController < ApplicationController
   before_filter :confirm_logged_in
-  layout 'admin'
+  layout 'admin', except: [:edit_meta_tags_for_blog]
 
   def index
   end
@@ -15,13 +15,24 @@ class DefaultMetaTagsController < ApplicationController
   end
 
   def update
-    @meta_tags = DefaultMetaTag.find(params[:id])
+    @meta_tag = DefaultMetaTag.find(params[:id])
 
-    if @meta_tags.update_attributes(params[:default_meta_tag])
-      redirect_to default_meta_tags_path, notice: "Мета теги успешно обновлены"
+    is_blog = request.referer == edit_meta_tags_url
+
+    if @meta_tag.update_attributes(params[:default_meta_tag])
+      redirect_to is_blog ? posts_path : default_meta_tags_path, notice: 'Мета теги успешно обновлены'
     else
-      render :edit
+      if is_blog
+        render 'edit_meta_tags_for_blog', layout: 'blog'
+      else
+        render 'edit'
+      end
     end
+  end
+
+  def edit_meta_tags_for_blog
+    @meta_tag = DefaultMetaTag.find_by_method('posts_index')
+    render layout: 'blog'
   end
 
 end

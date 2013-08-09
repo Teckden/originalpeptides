@@ -23,11 +23,6 @@ class StoreController < ApplicationController
     @delivery_details = DeliveryDetail.all
   end
 
-  private
 
-  def find_default_meta_tags
-    @meta_tags[:keywords] = DefaultMetaTag.find_by_method(controller_name + "_" + action_name).meta_keywords
-    @meta_tags[:description] = DefaultMetaTag.find_by_method(controller_name + "_" + action_name).meta_description
-  end
 
 end
