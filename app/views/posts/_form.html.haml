@@ -13,6 +13,14 @@
     = f.text_field :title
 
   .field
+    = f.label :meta_keywords, 'Мета тег: Ключевые слова:'
+    = f.text_field :meta_keywords
+
+  .field
+    = f.label :meta_description, 'Мета тег: Описание:'
+    = f.text_field :meta_description
+
+  .field
     = f.label :content, 'Текст статьи:'
     = f.cktext_area :content
 

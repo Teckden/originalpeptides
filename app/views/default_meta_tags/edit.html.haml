@@ -1,16 +1,1 @@
-= form_for @meta_tag, html: {id: "form_for_meta_tags"} do |f|
-  - if @meta_tag.errors.any?
-    #error_explanation
-      %h2 Указаные ниже поля заполнены не корректно, пожалуйста заполните их правильно
-      %ol
-        - @meta_tag.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :meta_keywords, "Мета тег: ключевые слова"
-    = f.text_area :meta_keywords, size: 500
-  .field
-    = f.label :meta_description, "Мета тег: описание"
-    = f.text_area :meta_description, size: 500
-  .action
-    = f.submit 'Сохранить изменения', class: "btn btn-primary"
-
+= render partial: 'form'
