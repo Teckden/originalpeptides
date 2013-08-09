@@ -2,6 +2,7 @@ CartTemplate::Application.routes.draw do
 
   scope '/blog' do
     resources :posts
+    get 'edit_meta_tags', to: 'default_meta_tags#edit_meta_tags_for_blog'
   end
   resources :delivery_details, except: [:show]
   resources :sessions, only: [:new, :create, :destroy]
