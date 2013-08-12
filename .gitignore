@@ -17,7 +17,7 @@
 /bin/
 /.idea/
 /config/database.yml
-/config/schema.rb
+/db/schema.rb
 /Gemfile.lock
 /tmp/
 /public/system
