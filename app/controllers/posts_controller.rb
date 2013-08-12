@@ -56,4 +56,8 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def archive
+    @posts_by_year = Post.order("updated_at DESC").group_by {|post| post.updated_at.strftime("%Y")}
+  end
+
 end
