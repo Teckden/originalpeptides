@@ -1,0 +1,12 @@
+= content_for :css_includes do
+  = stylesheet_link_tag 'blog/archive'
+
+.blog-archive
+  %h1 Архив Блога
+  #archive-content
+    - @posts_by_year.each do |yeah, posts|
+      %h2.year= yeah
+      -posts.each do |post|
+        .post
+          .updated-post-date= Russian::strftime(post.updated_at, "%b %e")
+          .posts-title= link_to post.title, post
