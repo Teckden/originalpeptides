@@ -15,6 +15,8 @@
           |
           = link_to 'Удалить', article, method: :delete, data: {confirm: 'Вы действительно хотите удалить данную статью?'}
   .pagination{align: 'center'}
-    = link_to '← Предыдущие', '#', class: 'prev'
+    = will_paginate @posts, page_links: false, previous_label: '← Более Новые', next_label: 'Предыдущие →', class: 'next-prev-pagination'
+    -#= link_to '← Предыдущие', '#', class: 'prev'
     = link_to 'Архив Блога', '#', class: 'archive'
-    = link_to 'Более Новые →', '#', class: 'next'
+    -#= will_paginate @posts, page_links: false, next_label: 'Более Новые →', class: 'next'
+    -#= link_to 'Более Новые →', '#', class: 'next'
