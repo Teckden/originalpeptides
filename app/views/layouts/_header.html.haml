@@ -16,7 +16,7 @@
   #cart_button
     .btn-group
       = button_to 'Блог', posts_path, class: 'btn blog-btn', method: :get, form: {target: '_blank'}
-      = button_to "Оплата и Доставка", delivery_info_path, class: "btn delivery-info-btn", method: :get
+      = button_to "Оплата и Доставка", delivery_info_path(find_page('info')), class: "btn delivery-info-btn", method: :get
       - if session[:cart_id].nil?
         = button_to "Корзина", empty_cart_path, class: "btn", method: :get
       - else
