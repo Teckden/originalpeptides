@@ -20,9 +20,7 @@ class StoreController < ApplicationController
 
   def delivery_info
     @title = "Доставка и оплата"
-    @delivery_details = DeliveryDetail.all
+    @delivery_details = Page.find_by_page(params[:custom_url])
   end
-
-
 
 end
