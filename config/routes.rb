@@ -1,11 +1,5 @@
 CartTemplate::Application.routes.draw do
 
-  scope '/blog' do
-    resources :posts
-    get 'edit_meta_tags', to: 'default_meta_tags#edit_meta_tags_for_blog'
-    get 'archive', to: 'posts#archive'
-  end
-  resources :delivery_details, except: [:show]
   resources :sessions, only: [:new, :create, :destroy]
   resources :orders
   resources :cart_products
@@ -13,15 +7,31 @@ CartTemplate::Application.routes.draw do
   resources :products
   resources :default_meta_tags, only: [:index, :show, :edit, :update]
 
+  scope '/blog' do
+    resources :posts
+    get 'edit_meta_tags', to: 'default_meta_tags#edit_meta_tags_for_blog'
+    get 'archive', to: 'posts#archive'
+  end
+
+  get 'store/:custom_url' => 'store#show', as: 'show_item'
+  get 'store/pages/:custom_url', to: 'store#delivery_info', as: 'delivery_info'
+  get 'store/pages/:custom_url', to: 'store#wholesale_prices', as: 'wholesale_prices'
+  get 'empty_cart', to: 'store#empty_cart', as: 'empty_cart'
+
+  root to: 'store#index', as: 'store'
+
   get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
   delete 'blog_admin_logout', to: 'posts#blog_admin_logout'
   get 'else', to: 'backend#else'
 
-  get 'info', to: 'store#delivery_info', as: 'delivery_info'
-  get 'empty_cart', to: 'store#empty_cart', as: 'empty_cart'
-  get "/:custom_url" => 'store#show', as: 'show_item'
-  root to: 'store#index', as: 'store'
+  scope 'pages' do
+    get '/:custom_url', to: 'pages#show', as: 'delivery_details'
+    get '/edit/:custom_url', to: 'pages#edit', as: 'edit_delivery_details'
+    put '/:custom_url', to: 'pages#update'
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
