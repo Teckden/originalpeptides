@@ -19,8 +19,13 @@ class StoreController < ApplicationController
   end
 
   def delivery_info
-    @title = "Доставка и оплата"
-    @delivery_details = Page.find_by_page(params[:custom_url])
+    @delivery_details = Page.find_by_custom_url(params[:custom_url])
+    @title = @delivery_details.title
+  end
+
+  def wholesale_prices
+    @wholesale_prices = Page.find_by_custom_url(params[:custom_url])
+    @title = @wholesale_prices.title
   end
 
 end

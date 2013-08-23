@@ -33,11 +33,14 @@
 
         %br{:style => "clear:both;"}/
 
+      .wholesale-prices-link
+        = link_to 'Оптовые Цены', wholesale_prices_path(find_page('sale')), class: "btn btn-primary"
       .vk_widget
-        %script{:src => "//vk.com/js/api/openapi.js?64", :type => "text/javascript"}
+        %script{:src => "//vk.com/js/api/openapi.js?98", :type => "text/javascript"}
         #vk_groups
         :javascript
-          VK.Widgets.Group("vk_groups", {mode: 1, wide: 1, width: "300", height: "150"}, 48829478);
+          VK.Widgets.Group("vk_groups", {mode: 1, width: "300", height: "140"}, 48829478);
+
 
     = render 'layouts/footer'
 
