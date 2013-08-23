@@ -1,0 +1,24 @@
+%h1 Редактирование страницы #{@page.title}
+
+= form_for @page, url: {action: 'update'} do |f|
+  - if @page.errors.any?
+    #error_explanation
+      %h2 При заполнении формы возникли ошибки. Проверьте следующие поля:
+      %ul
+        - @page.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title, 'Заглавие страницы:'
+    = f.text_field :title, style: "width: 98%"
+
+  .field
+    = f.label :custom_url, 'Введите желаемый URL страницы:'
+    = f.text_field :custom_url, style: "width: 98%"
+
+  .field
+    = f.label :text, 'Текст страницы:'
+    = f.cktext_area :text
+
+  .actions
+    = f.submit 'Сохранить изменения', class: 'btn btn-primary', style: "margin-top: 20px; width: 100%"
