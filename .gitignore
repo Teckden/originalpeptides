@@ -19,6 +19,7 @@
 /config/database.yml
 /db/schema.rb
 /Gemfile.lock
+Gemfile.lock
 /tmp/
 /public/system
 /public/system/

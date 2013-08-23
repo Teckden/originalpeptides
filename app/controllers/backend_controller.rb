@@ -3,6 +3,7 @@ class BackendController < ApplicationController
   layout 'admin'
 
   def else
+    @pages = Page.all
   end
 
 
