@@ -3,4 +3,5 @@
 
 %ul.other-params
   %li= link_to 'Редактировать основные мета теги', default_meta_tags_path, class: "btn btn-primary"
-  %li= link_to 'Редактировать страницу \'Оплата и Доставка\'', edit_delivery_details_url(find_page('info')), class: "btn btn-primary"
+  - @pages.each do |page|
+    %li= link_to "Редактировать страницу '#{page.title}'", edit_delivery_details_url(find_page(page.page)), class: "btn btn-primary"
