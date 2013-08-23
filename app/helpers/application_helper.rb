@@ -6,4 +6,8 @@ module ApplicationHelper
     title.blank? ? base_title : "#{title}"
   end
 
+  def find_page(page)
+    Page.get_custom_url(page)
+  end
+
 end
