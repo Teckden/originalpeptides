@@ -28,3 +28,4 @@ Gemfile.lock
 /config/environment.rb
 /config/environments/development.rb
 config/application.yml
+db/schema.rb
