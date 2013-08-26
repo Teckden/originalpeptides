@@ -16,7 +16,7 @@
 #Ignore other stuff
 /bin/
 /.idea/
-/config/database.yml
+config/*.yml
 /db/schema.rb
 /Gemfile.lock
 Gemfile.lock
@@ -27,3 +27,4 @@ Gemfile.lock
 /public/assets
 /config/environment.rb
 /config/environments/development.rb
+config/application.yml
