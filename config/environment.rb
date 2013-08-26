@@ -5,11 +5,10 @@ require File.expand_path('../application', __FILE__)
 CartTemplate::Application.initialize!
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-   :address => "smtp.hostfabrica.ru",
-   :port => 25,
-   :domain => "originalpeptides.com.ua",
-   :authentication => "cram_md5",
-   :user_name => "noreply@originalpeptides.com.ua",
-   :password => "go_35-mail"
+    :address => CONFIG[:email_host_address],
+    :port => 25,
+    :domain => CONFIG[:email_domain],
+    :authentication => "cram_md5",
+    :user_name => CONFIG[:email_username],
+    :password => CONFIG[:email_password]
 }
-
