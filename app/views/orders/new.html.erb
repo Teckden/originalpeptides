@@ -39,6 +39,6 @@
     * - Поля обезательные для заполнения
   </div>
   <div class="field">
-    <%= f.submit 'Готово', class: "btn btn-large btn-primary" %>
+    <%= f.submit 'Готово', class: "btn btn-large btn-primary", id: 'submit-new-order', data: { disable_with: 'Обрабатываеться...' } %>
   </div>
 <% end %>

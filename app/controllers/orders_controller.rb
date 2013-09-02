@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
-      OrderMailer.new_order(@order).deliver
+      OrderMailer.new_order(@order).deliver if Rails.env == 'production'
       redirect_to store_url, notice: "Ваш заказ добавлен в обработку, вскоре наш менеджер свяжется с Вами. Спасибо за покупку"
     else
       @cart = current_cart
