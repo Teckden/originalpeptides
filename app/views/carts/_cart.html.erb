@@ -19,11 +19,7 @@
       </td>
       <td style="width: 120px;"><%= link_to item.product.title, show_item_path(item.product.id, item.product.custom_url) %></td>
       <td style="width: 140px;">
-        <%= number_to_currency(item.total_price('UAH'), unit: 'UAH', format: "%n %u") %>
-        <br>
-        <%- if item.product.russian_price %>
-          <%= number_to_currency(item.total_price('RUB'), unit: 'RUB', format: "%n %u") %>
-        <% end %>
+        <%= number_to_currency(item.total_price('RUB'), unit: 'RUB', format: "%n %u") %>
       </td>
       <td><%= link_to 'X', item, confirm: "Are you sure?", method: :delete %></td>
     </tr>
@@ -31,8 +27,6 @@
   <tr class="total_line">
     <td colspan="2">Total:</td>
     <td class="total_price">
-      <%= number_to_currency(current_cart.total_price('UAH'), unit: 'UAH', format: "%n %u") %>
-      <br>
       <%= number_to_currency(current_cart.total_price('RUB'), unit: 'RUB', format: "%n %u") %>
     </td>
   </tr>

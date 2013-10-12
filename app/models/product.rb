@@ -9,8 +9,8 @@ class Product < ActiveRecord::Base
 
   before_destroy :ensure_not_referenced_by_any_cart_products
 
-  validates :title, :description, :price, :producer, :meta_description, :meta_keywords, presence: true
-  validates :price, numericality: {greater_than_or_equal_to: 0.01}
+  validates :title, :description, :russian_price, :producer, :meta_description, :meta_keywords, presence: true
+  validates :russian_price, numericality: {greater_than_or_equal_to: 0.01}
   validates :title, uniqueness: true
   validates :assets, presence: true
   validates :meta_description, :meta_keywords, uniqueness: true
