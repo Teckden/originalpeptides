@@ -8,11 +8,8 @@
     %h2 Выбирай только качественную продукцию
     %h2{:style => "margin-left: 100px"}= link_to 'originalpeptides.com.ua', "http://originalpeptides.com.ua"
     %h2.phone 89205828770 на Россию
-    %h2.phone 0676050747 на Украину
     %h2.email
       email на Россию: #{mail_to 'arm.iron.men@mail.ru'}
-    %h2.email
-      email на Украину: #{mail_to 'originalpeptides@gmail.com'}
   #cart_button
     .btn-group
       = button_to 'Блог', posts_path, class: 'btn blog-btn', method: :get, form: {target: '_blank'}
