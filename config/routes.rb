@@ -13,7 +13,7 @@ CartTemplate::Application.routes.draw do
     get 'archive', to: 'posts#archive'
   end
 
-  get 'store/:custom_url' => 'store#show', as: 'show_item'
+  get '/:custom_url' => 'store#show', as: 'show_item'
   get 'store/pages/:custom_url', to: 'store#delivery_info', as: 'delivery_info'
   get 'store/pages/:custom_url', to: 'store#wholesale_prices', as: 'wholesale_prices'
   get 'empty_cart', to: 'store#empty_cart', as: 'empty_cart'
