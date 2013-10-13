@@ -13,17 +13,18 @@ CartTemplate::Application.routes.draw do
     get 'archive', to: 'posts#archive'
   end
 
-  get '/:custom_url' => 'store#show', as: 'show_item'
-  get 'store/pages/:custom_url', to: 'store#delivery_info', as: 'delivery_info'
-  get 'store/pages/:custom_url', to: 'store#wholesale_prices', as: 'wholesale_prices'
-  get 'empty_cart', to: 'store#empty_cart', as: 'empty_cart'
-
-  root to: 'store#index', as: 'store'
-
   get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
   delete 'blog_admin_logout', to: 'posts#blog_admin_logout'
   get 'else', to: 'backend#else'
+  get 'empty_cart', to: 'store#empty_cart', as: 'empty_cart'
+
+  get '/:custom_url' => 'store#show', as: 'show_item'
+  get 'store/pages/:custom_url', to: 'store#delivery_info', as: 'delivery_info'
+  get 'store/pages/:custom_url', to: 'store#wholesale_prices', as: 'wholesale_prices'
+
+  root to: 'store#index', as: 'store'
+
 
   scope 'pages' do
     get '/:custom_url', to: 'pages#show', as: 'delivery_details'
